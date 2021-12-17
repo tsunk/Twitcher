@@ -29,6 +29,7 @@ class HomeTableTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    
     @objc func loadTweets(){
         
         numberOfTweet = 20
@@ -46,6 +47,11 @@ class HomeTableTableViewController: UITableViewController {
         }, failure: { (Error) in
             print("Could not retrieve tweets!")
         })
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadTweets()
     }
     
     func loadMoreTweets(){
